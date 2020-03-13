@@ -1,8 +1,9 @@
 package lab7_miguelrojas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuarios {
+public class Usuarios implements Serializable{
     
     private String usuario;
     private String password;
@@ -10,6 +11,8 @@ public class Usuarios {
     private int edad;
     private ArrayList<Eventos> lista_eventos = new ArrayList();
     private ArrayList<Artistas> lista_artistas = new ArrayList();
+    
+    private static final long serialVersionUID = 111L;
 
     public Usuarios(String usuario, String password, String nombre, int edad) {
         this.usuario = usuario;

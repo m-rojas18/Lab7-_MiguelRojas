@@ -1,8 +1,11 @@
 package lab7_miguelrojas;
 
-public class Solistas extends Artistas{
+import java.io.Serializable;
+
+public class Solistas extends Artistas implements Serializable{
     
     private int edad;
+     private static final long serialVersionUID = 333L;
 
     public Solistas(int edad, String usuario, String password, String nombre, String genero_musical) {
         super(usuario, password, nombre, genero_musical);
