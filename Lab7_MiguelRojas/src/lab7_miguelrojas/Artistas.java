@@ -1,14 +1,16 @@
 package lab7_miguelrojas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Artistas {
+public class Artistas implements Serializable{
     
-    private String usuario;
-    private String password;
-    private String nombre;
-    private String genero_musical;
-    private ArrayList<Canciones> lista_canciones = new ArrayList();
+    protected String usuario;
+    protected String password;
+    protected String nombre;
+    protected String genero_musical;
+    protected ArrayList<Canciones> lista_canciones = new ArrayList();
+    private static final long serialVersionUID = 222L;
 
     public Artistas(String usuario, String password, String nombre, String genero_musical) {
         this.usuario = usuario;
@@ -19,6 +21,9 @@ public class Artistas {
 
     public String getUsuario() {
         return usuario;
+    }
+    Artistas(){
+        
     }
 
     public void setUsuario(String usuario) {
@@ -59,6 +64,6 @@ public class Artistas {
 
     @Override
     public String toString() {
-        return  nombre;
+        return  nombre + "Genero:" + genero_musical + "Canciones:";
     }
 }

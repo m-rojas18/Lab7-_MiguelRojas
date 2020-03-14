@@ -24,6 +24,10 @@ public class Admin_Usuario {
     public void setLista_usuarios(ArrayList<Usuarios> lista_usuarios) {
         this.lista_usuarios = lista_usuarios;
     }
+    
+    public void setUsuario(Usuarios u){
+        this.lista_usuarios.add(u);
+    }
 
     public File getArchivo_U() {
         return archivo_U;

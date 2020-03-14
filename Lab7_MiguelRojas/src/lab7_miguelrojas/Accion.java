@@ -28,10 +28,10 @@ public class Accion extends Thread{
         
         while(empezar){
             if (vive) {
-                barraU.setValue(barraU.getValue() + 1);
+                barraU.setValue(barraU.getValue() + 25000);
             }
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (Exception e) {
             }
             

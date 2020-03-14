@@ -2,10 +2,10 @@ package lab7_miguelrojas;
 
 import java.io.Serializable;
 
-public class Banda extends Artistas implements Serializable{
+public class Banda extends Artistas{
 
     private int integrantes;
-    private static final long serialVersionUID = 222L;
+    
 
     public Banda(int integrantes, String usuario, String password, String nombre, String genero_musical) {
         super(usuario, password, nombre, genero_musical);
@@ -22,6 +22,6 @@ public class Banda extends Artistas implements Serializable{
 
     @Override
     public String toString() {
-        return "integrantes=" + integrantes + '}';
+        return usuario + password +"Canciones" + lista_canciones;
     }   
 }

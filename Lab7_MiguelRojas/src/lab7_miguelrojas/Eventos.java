@@ -1,14 +1,16 @@
 package lab7_miguelrojas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Eventos {
+public class Eventos implements Serializable{
     
     private String fecha;
     private String ciudad;
     private String lugar;
     private int capacidad_personas;
     private ArrayList<Canciones> set_list;
+    private static final long serialVersionUID = 333L;
 
     public Eventos(String fecha, String ciudad, String lugar, int capacidad_personas, ArrayList<Canciones> set_list) {
         this.fecha = fecha;

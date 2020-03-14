@@ -68,6 +68,11 @@ public class Usuarios implements Serializable{
     public void setLista_artistas(ArrayList<Artistas> lista_artistas) {
         this.lista_artistas = lista_artistas;
     }
+
+    @Override
+    public String toString() {
+        return usuario + password;
+    }
     
     
     

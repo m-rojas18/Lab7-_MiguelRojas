@@ -1,16 +1,32 @@
 package lab7_miguelrojas;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
+    int cont = 0;
+
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Usuarios master = new Usuarios("leobanegas", "99", "Leonardo", 22);
-        au.getLista_usuarios().add(master);
-        au.escribirArchivoU();
+        au.cargarArchivoU();
+        ab.cargarArchivo_B();
+        if (cont > 0) {
+            au.setUsuario(master);
+            au.escribirArchivoU();
+            cont++;
+        } else {
+            //no agregar  
+        }
 
+        for (int i = 0; i < au.getLista_usuarios().size(); i++) {
+            System.out.println(au.getLista_usuarios().get(i).getUsuario() + "\n" + au.getLista_usuarios().get(i).getPassword());
+        }
+        cont++;
+        for (Banda b : ab.getLista_Bandas()) {
+            System.out.println(b);
+        }
     }
 
     /**
@@ -64,18 +80,49 @@ public class Main extends javax.swing.JFrame {
         jd_menuLeo = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jb_manejarCuentas = new javax.swing.JButton();
         jd_ProgressBarCuenta = new javax.swing.JDialog();
-        jpb_cuenta = new javax.swing.JProgressBar();
         jLabel15 = new javax.swing.JLabel();
+        jpb_cuenta = new javax.swing.JProgressBar();
         jd_menuUser = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
+        jb_eventos = new javax.swing.JButton();
+        jb_artistas = new javax.swing.JButton();
         jd_menuSolista = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jd_menuBanda = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
+        jd_artistas = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_bandas = new javax.swing.JList<>();
+        jb_follow = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_solistas = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jd_manejarCuentas = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_eliminarUsers = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jl_elimBandas = new javax.swing.JList<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jl_elimSolistas = new javax.swing.JList<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jb_eliminarSolistas = new javax.swing.JButton();
+        jb_eliminarBandas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -350,6 +397,21 @@ public class Main extends javax.swing.JFrame {
 
         jLabel22.setText("Menu de Leo");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jb_manejarCuentas.setText("Manejar Cuentas");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -357,14 +419,26 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel22)
-                .addContainerGap(627, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jb_manejarCuentas)
+                .addGap(84, 84, 84))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel22)
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jb_manejarCuentas)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_menuLeoLayout = new javax.swing.GroupLayout(jd_menuLeo.getContentPane());
@@ -385,8 +459,6 @@ public class Main extends javax.swing.JFrame {
 
         jd_ProgressBarCuenta.setMaximumSize(new java.awt.Dimension(50, 50));
 
-        jpb_cuenta.setMaximum(10);
-
         jLabel15.setText("Creando Cuenta.........");
 
         javax.swing.GroupLayout jd_ProgressBarCuentaLayout = new javax.swing.GroupLayout(jd_ProgressBarCuenta.getContentPane());
@@ -399,37 +471,57 @@ public class Main extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel15))
                     .addGroup(jd_ProgressBarCuentaLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(99, 99, 99)
                         .addComponent(jpb_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jd_ProgressBarCuentaLayout.setVerticalGroup(
             jd_ProgressBarCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ProgressBarCuentaLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel15)
-                .addGap(67, 67, 67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jpb_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
         );
 
         jLabel24.setText("Menu Usuario");
+
+        jb_eventos.setText("Eventos");
+
+        jb_artistas.setText("Ver Artistas");
+        jb_artistas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_artistasMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel24)
-                .addContainerGap(681, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel24))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(jb_eventos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(185, 185, 185)
+                        .addComponent(jb_artistas)))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel24)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addGap(187, 187, 187)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_eventos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_artistas, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_menuUserLayout = new javax.swing.GroupLayout(jd_menuUser.getContentPane());
@@ -510,6 +602,187 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jd_artistas.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jd_artistasWindowClosing(evt);
+            }
+        });
+
+        jLabel26.setText("Artistas");
+
+        jScrollPane1.setViewportView(jl_bandas);
+
+        jb_follow.setText("Follow");
+
+        jLabel28.setText("Bandas");
+
+        jLabel29.setText("Solistas");
+
+        jScrollPane3.setViewportView(jl_solistas);
+
+        jButton1.setText("Follow");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel26))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel29)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(60, 60, 60))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jb_follow)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(150, 150, 150))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_follow, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_artistasLayout = new javax.swing.GroupLayout(jd_artistas.getContentPane());
+        jd_artistas.getContentPane().setLayout(jd_artistasLayout);
+        jd_artistasLayout.setHorizontalGroup(
+            jd_artistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_artistasLayout.setVerticalGroup(
+            jd_artistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_artistasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jScrollPane4.setViewportView(jl_eliminarUsers);
+
+        jButton2.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jButton2)
+                .addContainerGap(125, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Eliminar[U]", jPanel9);
+
+        jScrollPane5.setViewportView(jl_elimBandas);
+
+        jScrollPane6.setViewportView(jl_elimSolistas);
+
+        jLabel27.setText("Solistas");
+
+        jLabel30.setText("Bandas");
+
+        jb_eliminarSolistas.setText("Eliminar");
+
+        jb_eliminarBandas.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(171, 171, 171)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(83, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jb_eliminarBandas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_eliminarSolistas)
+                .addGap(103, 103, 103))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_eliminarSolistas)
+                    .addComponent(jb_eliminarBandas))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Eliminar [A]", jPanel10);
+
+        javax.swing.GroupLayout jd_manejarCuentasLayout = new javax.swing.GroupLayout(jd_manejarCuentas.getContentPane());
+        jd_manejarCuentas.getContentPane().setLayout(jd_manejarCuentasLayout);
+        jd_manejarCuentasLayout.setHorizontalGroup(
+            jd_manejarCuentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_manejarCuentasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+        jd_manejarCuentasLayout.setVerticalGroup(
+            jd_manejarCuentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_manejarCuentasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Lab7_Miguel Rojas");
@@ -532,7 +805,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        cb_tipo_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de Cuenta", "Artista", "Usuario" }));
+        cb_tipo_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de Cuenta", "Solista", "Banda", "Usuario" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -630,16 +903,16 @@ public class Main extends javax.swing.JFrame {
         if (crear) {
             try {
                 Usuarios u = new Usuarios(user, password, nombre, edad);
-                au.getLista_usuarios().add(u);
+                au.setUsuario(u);
                 au.escribirArchivoU();//Agregar a Archivo Binario
 
                 tf_nombreUser.setText("");
                 pf_passwordUser.setText("");
                 tf_nombreUser.setText("");
                 jd_crearUsuario.dispose();
-                abrirProgressbar();
-                accion = new Accion(jpb_cuenta);
-                accion.start();
+                //abrirProgressbar();
+                //accion = new Accion(jpb_cuenta);
+                // accion.start();
                 JOptionPane.showMessageDialog(jd_crearUsuario, "Se creo con exito el usuario");
 
                 this.setVisible(true);
@@ -697,6 +970,9 @@ public class Main extends javax.swing.JFrame {
                 //Progress Bar
 
                 //
+                //Refrescar Listas Solistas
+                refrescarSolistas();
+                refrescarElimSolistas();
                 JOptionPane.showMessageDialog(jd_crearSolista, "Se registro con exito el Solista");
                 tf_usuarioSolista.setText("");
                 pf_passwordSolista.setText("");
@@ -715,36 +991,25 @@ public class Main extends javax.swing.JFrame {
 
         if (cb_tipo_usuario.getSelectedItem() == "Tipo de Cuenta") {
             JOptionPane.showMessageDialog(this, "Debe Elegir un tipo de Cuenta para Registrarse");
-        } else if (cb_tipo_usuario.getSelectedItem() == "Artista") {
+        } else if (cb_tipo_usuario.getSelectedItem() == "Solista") {
+            tf_usuarioMain.setText("");
+            pf_passwordMain.setText("");
+            cb_tipo_usuario.setSelectedIndex(0);
+            this.setVisible(false);
+            jd_crearSolista.setModal(true);
+            jd_crearSolista.pack();
+            jd_crearSolista.setLocationRelativeTo(this);
+            jd_crearSolista.setVisible(true);
 
-            try {
-                int input = Integer.parseInt(JOptionPane.showInputDialog(this, "Eliga tipo de Artista\n[1] Solista\n[2] Banda"));
-                if (input == 1) {
-                    tf_usuarioMain.setText("");
-                    pf_passwordMain.setText("");
-                    cb_tipo_usuario.setSelectedIndex(0);
-                    this.setVisible(false);
-                    jd_crearSolista.setModal(true);
-                    jd_crearSolista.pack();
-                    jd_crearSolista.setLocationRelativeTo(this);
-                    jd_crearSolista.setVisible(true);
-                } else if (input == 2) {
-                    tf_usuarioMain.setText("");
-                    pf_passwordMain.setText("");
-                    cb_tipo_usuario.setSelectedIndex(0);
-                    this.setVisible(false);
-                    jd_crearBanda.setModal(true);
-                    jd_crearBanda.pack();
-                    jd_crearBanda.setLocationRelativeTo(this);
-                    jd_crearBanda.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Debe Ingresar un Tipo Valido");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+        } else if (cb_tipo_usuario.getSelectedItem() == "Banda") {
+            tf_usuarioMain.setText("");
+            pf_passwordMain.setText("");
+            cb_tipo_usuario.setSelectedIndex(0);
+            this.setVisible(false);
+            jd_crearBanda.setModal(true);
+            jd_crearBanda.pack();
+            jd_crearBanda.setLocationRelativeTo(this);
+            jd_crearBanda.setVisible(true);
         } else {
             //Abre la de Registrar Usuario Simple
             tf_usuarioMain.setText("");
@@ -798,9 +1063,13 @@ public class Main extends javax.swing.JFrame {
         if (registrar) {
             try {
                 Banda b = new Banda(num_integrantes, usuario, password, nombre, generoMusic);
-                ab.getLista_Bandas();
+                ab.getLista_Bandas().add(b);
                 ab.escribirArchivo_B();
                 JOptionPane.showMessageDialog(jd_crearBanda, "Se Registro con Exito la Banda");
+
+                //Refrescar Listas
+                refrescarElimBandas();
+                refrescarBandas();
                 //Hacer progress Bar
                 tf_usuarioBanda.setText("");
                 pf_passwordBanda.setText("");
@@ -824,7 +1093,9 @@ public class Main extends javax.swing.JFrame {
         String cuenta = null;
 
         boolean iniciar = true;
-        boolean true_login = true;
+        boolean true_loginS = true;
+        boolean true_loginB = true;
+        boolean true_loginU = true;
         if (tf_usuarioMain.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Debe Ingresar su Usuario");
             iniciar = false;
@@ -853,8 +1124,9 @@ public class Main extends javax.swing.JFrame {
                     if (as.getLista_solistas().get(i).getUsuario().equals(usuario)
                             && as.getLista_solistas().get(i).getPassword().equals(password)) {
                         //la cuenta existe
+                        true_loginS = false;
                     } else {
-                        true_login = false;
+
                     }
                 }
 
@@ -863,64 +1135,77 @@ public class Main extends javax.swing.JFrame {
                 for (int i = 0; i < ab.getLista_Bandas().size(); i++) {
                     if (ab.getLista_Bandas().get(i).getUsuario().equals(usuario) && ab.getLista_Bandas().get(i).getPassword().equals(password)) {
                         //Existe la Cuenta
+                        true_loginB = false;
                     } else {
-                        true_login = false;
+
                     }
                 }
 
-            } else {
-                //Va buscar a un usuario normal
+            } else if (cb_tipo_usuario.getSelectedItem().equals("Usuario")) {
                 for (int i = 0; i < au.getLista_usuarios().size(); i++) {
-                    if (au.getLista_usuarios().get(i).getUsuario().equals(usuario) && au.getLista_usuarios().get(i).getPassword().equals(password)) {
+                    if (usuario.equals(au.getLista_usuarios().get(i).getUsuario()) && password.equals(au.getLista_usuarios().get(i).getPassword())) {
                         //Existe la Cuenta
+                        true_loginU = false;
                     } else {
-                        true_login = false;
+
                     }
                 }
-
-            }
-        }
-        if (true_login == false) {
-            JOptionPane.showMessageDialog(this, "No existe el Usuario o es incorrecta la Informacion");
-        } else {
-            if (true_login && cb_tipo_usuario.getSelectedItem().equals("Solista")) {
-                this.dispose();
-                jd_menuSolista.setModal(true);
-                jd_menuSolista.pack();
-                jd_menuSolista.setLocationRelativeTo(this);
-                jd_menuSolista.setVisible(true);
-
-            } else if (true_login && cb_tipo_usuario.getSelectedItem().equals("Banda")) {
-                this.dispose();
-                jd_menuBanda.setModal(true);
-                jd_menuBanda.pack();
-                jd_menuBanda.setLocationRelativeTo(this);
-                jd_menuBanda.setVisible(true);
-
-            } else if (true_login && cb_tipo_usuario.getSelectedItem().equals("Usuario")) {
-
-                if (usuario.equals("leobanegas") && password.equals("99")) {
-                    //Abrir Menu de Leo
-                    this.dispose();
-                    jd_menuLeo.setModal(true);
-                    jd_menuLeo.pack();
-                    jd_menuLeo.setLocationRelativeTo(this);
-                    jd_menuLeo.setVisible(true);
-
-                } else {
-                    this.dispose();
-                jd_menuUser.setModal(true);
-                jd_menuUser.pack();
-                jd_menuUser.setLocationRelativeTo(this);
-                jd_menuUser.setVisible(true);
-                }
- 
             } else {
                 //do nothing
             }
         }
 
+        if (usuario.equals("leobanegas") && password.equals("99")) {
+            //Abrir Menu de Leo
+            this.dispose();
+            jd_menuLeo.setModal(true);
+            jd_menuLeo.pack();
+            jd_menuLeo.setLocationRelativeTo(this);
+            jd_menuLeo.setVisible(true);
+
+        }
+
+        if (true_loginS == false && cb_tipo_usuario.getSelectedItem().equals("Solista")) {
+            this.dispose();
+            jd_menuSolista.setModal(true);
+            jd_menuSolista.pack();
+            jd_menuSolista.setLocationRelativeTo(this);
+            jd_menuSolista.setVisible(true);
+
+        } else if (true_loginB == false && cb_tipo_usuario.getSelectedItem().equals("Banda")) {
+            this.dispose();
+            jd_menuBanda.setModal(true);
+            jd_menuBanda.pack();
+            jd_menuBanda.setLocationRelativeTo(this);
+            jd_menuBanda.setVisible(true);
+
+        } else if (true_loginU == false && cb_tipo_usuario.getSelectedItem().equals("Usuario")) {
+            this.dispose();
+            jd_menuUser.setModal(true);
+            jd_menuUser.pack();
+            jd_menuUser.setLocationRelativeTo(this);
+            jd_menuUser.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No existe el usuario");
+            //do nothing
+        }
+
     }//GEN-LAST:event_jb_loginMouseClicked
+
+    private void jb_artistasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_artistasMouseClicked
+        // TODO add your handling code here:
+        jd_menuUser.dispose();
+        jd_artistas.setModal(true);
+        jd_artistas.pack();
+        jd_artistas.setLocationRelativeTo(jd_menuUser);
+        jd_artistas.setVisible(true);
+    }//GEN-LAST:event_jb_artistasMouseClicked
+
+    private void jd_artistasWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_artistasWindowClosing
+        // TODO add your handling code here:
+        jd_menuUser.setVisible(true);
+    }//GEN-LAST:event_jd_artistasWindowClosing
 
     /**
      * @param args the command line arguments
@@ -959,6 +1244,8 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_tipo_usuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -977,7 +1264,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -985,25 +1277,49 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jb_artistas;
     private javax.swing.JButton jb_crearSolista;
     private javax.swing.JButton jb_crearUsuario;
+    private javax.swing.JButton jb_eliminarBandas;
+    private javax.swing.JButton jb_eliminarSolistas;
+    private javax.swing.JButton jb_eventos;
+    private javax.swing.JButton jb_follow;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_manejarCuentas;
     private javax.swing.JButton jb_registrarBanda;
     private javax.swing.JButton jb_registrarse;
     private javax.swing.JDialog jd_ProgressBarCuenta;
+    private javax.swing.JDialog jd_artistas;
     private javax.swing.JDialog jd_crearBanda;
     private javax.swing.JDialog jd_crearSolista;
     private javax.swing.JDialog jd_crearUsuario;
+    private javax.swing.JDialog jd_manejarCuentas;
     private javax.swing.JDialog jd_menuBanda;
     private javax.swing.JDialog jd_menuLeo;
     private javax.swing.JDialog jd_menuSolista;
     private javax.swing.JDialog jd_menuUser;
+    private javax.swing.JList<String> jl_bandas;
+    private javax.swing.JList<String> jl_elimBandas;
+    private javax.swing.JList<String> jl_elimSolistas;
+    private javax.swing.JList<String> jl_eliminarUsers;
+    private javax.swing.JList<String> jl_solistas;
     private javax.swing.JProgressBar jpb_cuenta;
     private javax.swing.JSpinner js_edadSolista;
     private javax.swing.JSpinner js_edadUser;
@@ -1027,6 +1343,7 @@ public class Main extends javax.swing.JFrame {
     Admin_Bandas ab = new Admin_Bandas("./Bandas.marh");
     Admin_Solistas as = new Admin_Solistas("./Solistas.marh");
     Accion accion;
+    Usuarios master = new Usuarios("leobanegas", "99", "Leonardo", 22);
 
     public void abrirProgressbar() {
 
@@ -1034,5 +1351,41 @@ public class Main extends javax.swing.JFrame {
         jd_ProgressBarCuenta.pack();
         jd_ProgressBarCuenta.setLocationRelativeTo(jd_crearUsuario);
         jd_ProgressBarCuenta.setVisible(true);
+    }
+
+    public void refrescarBandas() {
+        DefaultListModel model = new DefaultListModel();
+
+        for (Solistas s : as.getLista_solistas()) {
+            model.addElement(s);
+        }
+        jl_bandas.setModel(model);
+    }
+
+    public void refrescarSolistas() {
+        DefaultListModel mod = new DefaultListModel();
+
+        for (Banda b : ab.getLista_Bandas()) {
+            mod.addElement(b);
+        }
+        jl_solistas.setModel(mod);
+    }
+
+    public void refrescarElimBandas() {
+        DefaultListModel model = new DefaultListModel();
+
+        for (Banda b : ab.getLista_Bandas()) {
+            model.addElement(b);
+        }
+        jl_elimBandas.setModel(model);
+    }
+
+    public void refrescarElimSolistas() {
+        DefaultListModel model = new DefaultListModel();
+
+        for (Solistas s : as.getLista_solistas()) {
+            model.addElement(s);
+        }
+        jl_elimSolistas.setModel(model);
     }
 }
