@@ -1,7 +1,5 @@
 package lab7_miguelrojas;
 
-import java.io.Serializable;
-
 public class Banda extends Artistas{
 
     private int integrantes;

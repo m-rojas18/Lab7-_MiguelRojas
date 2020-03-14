@@ -33,6 +33,12 @@ public class Admin_Eventos {
         this.archivo_eventos = archivo_eventos;
     }
 
+    @Override
+    public String toString() {
+        return "[" + lista_eventos + "]";
+    }
+    
+    
     
     
     public void cargarArchivoC(){

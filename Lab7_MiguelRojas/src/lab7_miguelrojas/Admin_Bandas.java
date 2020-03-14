@@ -25,6 +25,13 @@ public class Admin_Bandas {
         this.lista_Bandas = lista_Bandas;
     }
 
+    @Override
+    public String toString() {
+        return "[" + lista_Bandas + "]";
+    }
+    
+    
+
     public void cargarArchivo_B() {
         try {
             lista_Bandas = new ArrayList();

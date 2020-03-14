@@ -33,6 +33,13 @@ public class Admin_Canciones {
     public void setArchivo_canciones(File archivo_canciones) {
         this.archivo_canciones = archivo_canciones;
     }
+
+    @Override
+    public String toString() {
+        return  "["+ lista_canciones +"]";
+    }
+    
+    
     
     public void cargarArchivoC(){
         try {

@@ -16,6 +16,7 @@ public class Main extends javax.swing.JFrame {
         au.cargarArchivoU();
         au.setUsuario(master);
         au.escribirArchivoU();
+        ab.cargarArchivo_B();
         /*if (cont > 0) {
             au.setUsuario(master);
             au.escribirArchivoU();
@@ -26,6 +27,10 @@ public class Main extends javax.swing.JFrame {
 
         for (int i = 0; i < au.getLista_usuarios().size(); i++) {
             System.out.println(au.getLista_usuarios().get(i).getUsuario() + "\n" + au.getLista_usuarios().get(i).getPassword());
+        }
+        
+        for (Banda lista_Banda : ab.getLista_Bandas()) {
+            System.out.println(ab);
         }
         cont++;
         
@@ -1438,9 +1443,9 @@ public class Main extends javax.swing.JFrame {
                 Thread proceso1 = new Thread(a);
                 proceso1.start();
                 if (jpb_cuenta.getValue() == 100000000) {
-                    
+                    jd_ProgressBarCuenta.dispose();
                 }
-                jd_ProgressBarCuenta.dispose();
+                
                 JOptionPane.showMessageDialog(jd_crearUsuario, "Se creo con exito el usuario");
 
                 this.setVisible(true);

@@ -58,6 +58,13 @@ public class Eventos implements Serializable{
     public void setSet_list(ArrayList<Canciones> set_list) {
         this.set_list = set_list;
     }
+
+    @Override
+    public String toString() {
+        return fecha + "," + ciudad + "," + lugar;
+    }
+    
+    
     
     
     

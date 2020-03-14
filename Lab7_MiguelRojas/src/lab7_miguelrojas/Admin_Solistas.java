@@ -25,6 +25,13 @@ public class Admin_Solistas {
         this.lista_solistas = lista_solistas;
     }
 
+    @Override
+    public String toString() {
+        return "[" + lista_solistas + "]" ;
+    }
+    
+    
+
     public void cargarArchivoS() {
         try {
             lista_solistas = new ArrayList();
