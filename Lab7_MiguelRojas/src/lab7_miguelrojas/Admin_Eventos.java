@@ -8,35 +8,45 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Admin_Solistas {
-
-    private ArrayList<Solistas> lista_solistas = new ArrayList();
-    private File archivo_S = null;
-
-    public Admin_Solistas(String pathname) {
-        archivo_S = new File(pathname);
+public class Admin_Eventos {
+    
+    private ArrayList<Eventos> lista_eventos = new ArrayList();
+    private File archivo_eventos = null;
+    
+    public Admin_Eventos(String path){
+        archivo_eventos = new File(path);
     }
 
-    public ArrayList<Solistas> getLista_solistas() {
-        return lista_solistas;
+    public ArrayList<Eventos> getLista_eventos() {
+        return lista_eventos;
     }
 
-    public void setLista_solistas(ArrayList<Solistas> lista_solistas) {
-        this.lista_solistas = lista_solistas;
+    public void setLista_eventos(ArrayList<Eventos> lista_eventos) {
+        this.lista_eventos = lista_eventos;
     }
 
-    public void cargarArchivoS() {
+    public File getArchivo_eventos() {
+        return archivo_eventos;
+    }
+
+    public void setArchivo_eventos(File archivo_eventos) {
+        this.archivo_eventos = archivo_eventos;
+    }
+
+    
+    
+    public void cargarArchivoC(){
         try {
-            lista_solistas = new ArrayList();
-            Solistas temp;
-            if (archivo_S.exists()) {
+            lista_eventos = new ArrayList();
+            Eventos temp;
+            if (archivo_eventos.exists()) {
                 FileInputStream entrada
-                        = new FileInputStream(archivo_S);
+                        = new FileInputStream(archivo_eventos);
                 ObjectInputStream objeto
                         = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Solistas) objeto.readObject()) != null) {
-                        lista_solistas.add(temp);
+                    while ((temp = (Eventos) objeto.readObject()) != null) {
+                        lista_eventos.add(temp);
                     }
                 } catch (EOFException e) {
                     //encontro el final del archivo
@@ -47,17 +57,15 @@ public class Admin_Solistas {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
-
-    public void escribirArchivoS() {
-
+    
+    public void escribirArchivoC(){
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
         try {
-            fw = new FileOutputStream(archivo_S);
+            fw = new FileOutputStream(archivo_eventos);
             bw = new ObjectOutputStream(fw);
-            for (Solistas s : lista_solistas) {
+            for (Eventos s : lista_eventos) {
                 bw.writeObject(s);
             }
             bw.flush();
@@ -70,7 +78,5 @@ public class Admin_Solistas {
             } catch (Exception ex) {
             }
         }
-
     }
-
 }

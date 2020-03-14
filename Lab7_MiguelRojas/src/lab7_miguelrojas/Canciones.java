@@ -1,9 +1,12 @@
 package lab7_miguelrojas;
 
-public class Canciones {
+import java.io.Serializable;
+
+public class Canciones implements Serializable{
 
     private String nombre;
     private int duracion;
+    private static final long serialVersionUID = 444L;
 
     public Canciones(String nombre, int duracion) {
         this.nombre = nombre;

@@ -2,19 +2,18 @@ package lab7_miguelrojas;
 
 import javax.swing.JProgressBar;
 
-public class Accion extends Thread{
-    
-    
+public class Accion extends Thread {
+
     private JProgressBar barraU;
     private boolean empezar;
     private boolean vive;
-    
-    public  Accion(JProgressBar barraU){
-        
+
+    public Accion(JProgressBar barraU) {
         this.barraU = barraU;
         empezar = true;
         vive = true;
     }
+
     //Mutadores Barra
     public void setEmpezar(boolean empezar) {
         this.empezar = empezar;
@@ -23,19 +22,24 @@ public class Accion extends Thread{
     public void setVive(boolean vive) {
         this.vive = vive;
     }
+
     @Override
-    public void run(){
-        
-        while(empezar){
+    public void run() {
+
+        while (empezar) {
             if (vive) {
                 barraU.setValue(barraU.getValue() + 20000);
+
+                if (barraU.getValue() == 100000) {
+                    vive = false;
+
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                }
             }
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {
-            }
-            
         }
-        
+
     }
 }
