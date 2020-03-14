@@ -12,12 +12,11 @@ public class Eventos implements Serializable{
     private ArrayList<Canciones> set_list;
     private static final long serialVersionUID = 333L;
 
-    public Eventos(String fecha, String ciudad, String lugar, int capacidad_personas, ArrayList<Canciones> set_list) {
+    public Eventos(String fecha, String ciudad, String lugar, int capacidad_personas) {
         this.fecha = fecha;
         this.ciudad = ciudad;
         this.lugar = lugar;
         this.capacidad_personas = capacidad_personas;
-        this.set_list = set_list;
     }
 
     public String getFecha() {

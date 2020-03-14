@@ -21,6 +21,6 @@ public class Solistas extends Artistas {
 
     @Override
     public String toString() {
-        return "edad=" + edad + '}';
+        return nombre;
     }
 }

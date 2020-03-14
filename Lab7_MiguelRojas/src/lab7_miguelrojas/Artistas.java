@@ -64,6 +64,6 @@ public class Artistas implements Serializable{
 
     @Override
     public String toString() {
-        return  nombre + "Genero:" + genero_musical + "Canciones:";
+        return  nombre;
     }
 }

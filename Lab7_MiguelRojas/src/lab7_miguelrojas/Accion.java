@@ -28,7 +28,7 @@ public class Accion extends Thread{
         
         while(empezar){
             if (vive) {
-                barraU.setValue(barraU.getValue() + 25000);
+                barraU.setValue(barraU.getValue() + 20000);
             }
             try {
                 Thread.sleep(1000);

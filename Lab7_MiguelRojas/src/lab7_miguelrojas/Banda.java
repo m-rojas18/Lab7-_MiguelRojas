@@ -6,7 +6,6 @@ public class Banda extends Artistas{
 
     private int integrantes;
     
-
     public Banda(int integrantes, String usuario, String password, String nombre, String genero_musical) {
         super(usuario, password, nombre, genero_musical);
         this.integrantes = integrantes;
@@ -22,6 +21,6 @@ public class Banda extends Artistas{
 
     @Override
     public String toString() {
-        return usuario + password +"Canciones" + lista_canciones;
+        return nombre;
     }   
 }
