@@ -39,7 +39,7 @@ public class Admin_Usuario {
 
     @Override
     public String toString() {
-        return "lista_usuarios=" + lista_usuarios;
+        return "[" + lista_usuarios + "]";
     }
 
     public void escribirArchivoU() {

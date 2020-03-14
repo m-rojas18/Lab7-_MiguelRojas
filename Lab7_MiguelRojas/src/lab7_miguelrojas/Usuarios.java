@@ -71,9 +71,6 @@ public class Usuarios implements Serializable{
 
     @Override
     public String toString() {
-        return usuario + password;
-    }
-    
-    
-    
+        return usuario;
+    } 
 }

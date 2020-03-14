@@ -8,31 +8,18 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
-    int cont = 0;
 
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        au.cargarArchivoU();
+        
         au.setUsuario(master);
         au.escribirArchivoU();
+        au.cargarArchivoU();
         ab.cargarArchivo_B();
-        /*if (cont > 0) {
-            au.setUsuario(master);
-            au.escribirArchivoU();
-            cont++;
-        } else {
-            //no agregar  
-        }*/
-
-        for (int i = 0; i < au.getLista_usuarios().size(); i++) {
-            System.out.println(au.getLista_usuarios().get(i).getUsuario() + "\n" + au.getLista_usuarios().get(i).getPassword());
-        }
-        
-        for (Banda lista_Banda : ab.getLista_Bandas()) {
-            System.out.println(ab);
-        }
-        cont++;
+        ae.cargarArchivoC();
+        ac.cargarArchivoC();
+        as.cargarArchivoS();
         
     }
 
@@ -458,6 +445,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jd_menuLeo.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                jd_menuLeoWindowClosed(evt);
+            }
+        });
+
         jLabel22.setText("Menu de Leo");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -814,6 +807,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jb_agregarCancionB.setText("Agregar Canciones");
+        jb_agregarCancionB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarCancionBMouseClicked(evt);
+            }
+        });
 
         jb_crearCancionB.setText("Crear Canciones");
         jb_crearCancionB.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1656,6 +1654,7 @@ public class Main extends javax.swing.JFrame {
                     if (as.getLista_solistas().get(i).getUsuario().equals(usuario)
                             && as.getLista_solistas().get(i).getPassword().equals(password)) {
                         //la cuenta existe
+                        num_solista = i;
                         true_loginS = false;
                     } else {
 
@@ -1667,6 +1666,7 @@ public class Main extends javax.swing.JFrame {
                 for (int i = 0; i < ab.getLista_Bandas().size(); i++) {
                     if (ab.getLista_Bandas().get(i).getUsuario().equals(usuario) && ab.getLista_Bandas().get(i).getPassword().equals(password)) {
                         //Existe la Cuenta
+                        num_banda = i;
                         true_loginB = false;
                     } else {
 
@@ -1677,6 +1677,7 @@ public class Main extends javax.swing.JFrame {
                 for (int i = 0; i < au.getLista_usuarios().size(); i++) {
                     if (usuario.equals(au.getLista_usuarios().get(i).getUsuario()) && password.equals(au.getLista_usuarios().get(i).getPassword())) {
                         //Existe la Cuenta
+                        num_user = i;
                         true_loginU = false;
                     } else {
 
@@ -1966,6 +1967,17 @@ public class Main extends javax.swing.JFrame {
         String canciones = "";
         if (ac.getLista_canciones().isEmpty()) {
             JOptionPane.showMessageDialog(jd_menuSolista, "No hay canciones creadas");
+        } else {
+            
+            for (int i = 0; i < ac.getLista_canciones().size(); i++) {
+                canciones += "[" + i + "]" + ac.getLista_canciones().get(i).getNombre() + "\n";
+            }
+            
+            int input = Integer.parseInt(JOptionPane.showInputDialog(jd_menuSolista, "Eliga una cancion:\n" + canciones));
+            
+            as.getLista_solistas().get(num_solista).getLista_canciones().add(ac.getLista_canciones().get(input));
+            as.escribirArchivoS();
+            JOptionPane.showMessageDialog(jd_menuSolista, "Se agrego con exito la Canción");
         }
         
     }//GEN-LAST:event_jb_agregarCancionSMouseClicked
@@ -2042,7 +2054,8 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         int posicion = jl_bandas.getSelectedIndex();
         
-        //Agregar a la lista del usuario y escribir en el archivo
+        au.getLista_usuarios().get(num_user).getLista_artistas().add(ab.getLista_Bandas().get(posicion));
+        JOptionPane.showMessageDialog(jd_menuUser, "Esta Siguiendo a la banda con exito");
         
         
     }//GEN-LAST:event_jb_followBandasMouseClicked
@@ -2050,7 +2063,36 @@ public class Main extends javax.swing.JFrame {
     private void jb_followSolistasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_followSolistasMouseClicked
         // TODO add your handling code here:
         int posicion = jl_solistas.getSelectedIndex();
+        
+        au.getLista_usuarios().get(num_user).getLista_artistas().add(as.getLista_solistas().get(posicion));
+        JOptionPane.showMessageDialog(jd_menuUser, "Esta Siguiendo al Solista con exito");
+        
     }//GEN-LAST:event_jb_followSolistasMouseClicked
+
+    private void jb_agregarCancionBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarCancionBMouseClicked
+        // TODO add your handling code here:
+        String canciones = "";
+        if (ac.getLista_canciones().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_menuBanda, "No hay canciones creadas");
+        } else {
+            
+            for (int i = 0; i < ac.getLista_canciones().size(); i++) {
+                canciones += "[" + i + "]" + ac.getLista_canciones().get(i).getNombre() + "\n";
+            }
+            
+            int input = Integer.parseInt(JOptionPane.showInputDialog(jd_menuBanda, "Eliga una cancion:\n" + canciones));
+            
+            ab.getLista_Bandas().get(num_solista).getLista_canciones().add(ac.getLista_canciones().get(input));
+            ab.escribirArchivo_B();
+            JOptionPane.showMessageDialog(jd_menuBanda, "Se agrego con exito la Canción");
+        }
+    }//GEN-LAST:event_jb_agregarCancionBMouseClicked
+
+    private void jd_menuLeoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_menuLeoWindowClosed
+        // TODO add your handling code here:
+        
+        this.setVisible(true);
+    }//GEN-LAST:event_jd_menuLeoWindowClosed
 
     /**
      * @param args the command line arguments
@@ -2311,4 +2353,8 @@ public class Main extends javax.swing.JFrame {
         jl_eventos.setModel(model);
         
     }
+    
+    int num_solista;
+    int num_banda;
+    int num_user;
 }
